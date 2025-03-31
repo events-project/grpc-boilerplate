@@ -5,7 +5,6 @@ node_modules/
 dist/
 
 # Generated files
-src/grpc/
 
 # Environment variables
 .env
