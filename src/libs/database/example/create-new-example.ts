@@ -1,6 +1,7 @@
 import { Example } from '@prisma/client';
 import { CreateExampleRequest } from '../../../grpc/service';
 import { db } from '../db';
+import { InternalError } from '@syllabus-project/common';
 
 export const createNewExample = async (params: CreateExampleRequest): Promise<Example> => {
   try {
@@ -11,6 +12,6 @@ export const createNewExample = async (params: CreateExampleRequest): Promise<Ex
     });
     return result;
   } catch (error) {
-    throw new Error('Failed to create example');
+    throw new InternalError();
   }
 };

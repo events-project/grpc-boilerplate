@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
+    "@syllabus-project/common": "^1.0.2",
     "dotenv": "^16.4.7",
     "long": "^5.2.3",
     "nice-grpc": "^2.1.0",

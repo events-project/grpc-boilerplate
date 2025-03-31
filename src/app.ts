@@ -5,17 +5,19 @@ import { db } from './libs/database';
 import * as methods from './methods';
 import { env } from './libs/env';
 
+const address = `${env('HOST')}:${env('PORT')}`;
+
 async function startServer(): Promise<void> {
   try {
     const server = createServer();
     server.add(ExampleServiceDefinition, methods);
-    await db.$connect();
 
-    const address = `${env('HOST')}:${env('PORT')}`;
+    // Connect to database
+    await db.$connect();
     await server.listen(address);
 
     const signals = ['SIGINT', 'SIGTERM'];
-    signals.forEach(signal => {
+    signals.forEach((signal) => {
       process.on(signal, async () => {
         await server.shutdown();
         process.exit(0);
@@ -29,9 +31,9 @@ async function startServer(): Promise<void> {
 
 startServer()
   .then(() => {
-    console.log(`Server started on ${env('HOST')}:${env('PORT')}`);
+    console.log(`Server started on ${address}`);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('Unhandled error:', error as Error);
     process.exit(1);
   });

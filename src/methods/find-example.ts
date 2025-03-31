@@ -3,8 +3,5 @@ import { findExampleById } from '../libs/database/example';
 
 export const findExample = async (request: FindExampleRequest): Promise<ExampleResponse> => {
   const result = await findExampleById(request.id);
-  if (!result) {
-    throw new Error('Example not found');
-  }
   return result;
 };
