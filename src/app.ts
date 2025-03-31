@@ -4,12 +4,13 @@ import { ExampleServiceDefinition } from '@grpc/service';
 import { db } from '@libs/database';
 import * as methods from './methods';
 import { env } from '@libs/env';
+import { errorHandlingMiddleware } from '@events-project/common';
 
 const address = `${env('HOST')}:${env('PORT')}`;
 
 async function startServer(): Promise<void> {
   try {
-    const server = createServer();
+    const server = createServer().use(errorHandlingMiddleware);
     server.add(ExampleServiceDefinition, methods);
 
     // Connect to database
