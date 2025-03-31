@@ -1,0 +1,28 @@
+{
+  "name": "grpc-vanilla",
+  "version": "1.0.0",
+  "description": "TypeScript gRPC service using nice-grpc",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
+    "proto:generate": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/grpc --ts_proto_opt=outputServices=nice-grpc,outputServices=generic-definitions,useExactTypes=false --proto_path=. service.proto"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "long": "^5.2.3",
+    "nice-grpc": "^2.1.0",
+    "nice-grpc-common": "^2.0.2",
+    "protobufjs": "^7.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "grpc-tools": "^1.12.4",
+    "nodemon": "^3.0.1",
+    "prisma": "^6.5.0",
+    "ts-node": "^10.9.1",
+    "ts-proto": "^1.156.0",
+    "typescript": "^5.2.2"
+  }
+}
