@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/app.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node -r tsconfig-paths/register' src/app.ts",
     "prisma:generate": "npx prisma generate",
     "prisma:migrate:dev": "npx prisma migrate dev",
     "proto:generate": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/grpc --ts_proto_opt=outputServices=nice-grpc,outputServices=generic-definitions,useExactTypes=false --proto_path=. service.proto",
@@ -15,8 +15,8 @@
     "format": "prettier --write 'src/**/*.{ts,js,json}'"
   },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
     "@events-project/common": "^1.0.3",
+    "@prisma/client": "^6.5.0",
     "dotenv": "^16.4.7",
     "long": "^5.2.3",
     "nice-grpc": "^2.1.0",
@@ -37,6 +37,7 @@
     "prisma": "^6.5.0",
     "ts-node": "^10.9.1",
     "ts-proto": "^1.156.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   }
 }

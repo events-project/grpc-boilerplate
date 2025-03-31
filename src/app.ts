@@ -1,9 +1,9 @@
 import { createServer } from 'nice-grpc';
 
-import { ExampleServiceDefinition } from './grpc/service';
-import { db } from './libs/database';
+import { ExampleServiceDefinition } from '@grpc/service';
+import { db } from '@libs/database';
 import * as methods from './methods';
-import { env } from './libs/env';
+import { env } from '@libs/env';
 
 const address = `${env('HOST')}:${env('PORT')}`;
 

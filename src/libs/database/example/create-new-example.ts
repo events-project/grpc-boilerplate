@@ -1,5 +1,5 @@
 import { Example } from '@prisma/client';
-import { CreateExampleRequest } from '../../../grpc/service';
+import { CreateExampleRequest } from '@grpc/service';
 import { db } from '../db';
 import { InternalError } from '@events-project/common';
 
