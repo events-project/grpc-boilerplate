@@ -8,7 +8,7 @@
 import { type CallContext, type CallOptions } from "nice-grpc-common";
 import * as _m0 from "protobufjs/minimal";
 
-export const protobufPackage = "example";
+export const protobufPackage = "boilerplate";
 
 export interface CreateExampleRequest {
   name: string;
@@ -211,10 +211,10 @@ export const FindExampleRequest = {
   },
 };
 
-export type ExampleServiceDefinition = typeof ExampleServiceDefinition;
-export const ExampleServiceDefinition = {
-  name: "ExampleService",
-  fullName: "example.ExampleService",
+export type BoilerplateServiceDefinition = typeof BoilerplateServiceDefinition;
+export const BoilerplateServiceDefinition = {
+  name: "BoilerplateService",
+  fullName: "boilerplate.BoilerplateService",
   methods: {
     findExample: {
       name: "FindExample",
@@ -235,7 +235,7 @@ export const ExampleServiceDefinition = {
   },
 } as const;
 
-export interface ExampleServiceImplementation<CallContextExt = {}> {
+export interface BoilerplateServiceImplementation<CallContextExt = {}> {
   findExample(
     request: FindExampleRequest,
     context: CallContext & CallContextExt,
@@ -246,7 +246,7 @@ export interface ExampleServiceImplementation<CallContextExt = {}> {
   ): Promise<DeepPartial<ExampleResponse>>;
 }
 
-export interface ExampleServiceClient<CallOptionsExt = {}> {
+export interface BoilerplateServiceClient<CallOptionsExt = {}> {
   findExample(
     request: DeepPartial<FindExampleRequest>,
     options?: CallOptions & CallOptionsExt,
